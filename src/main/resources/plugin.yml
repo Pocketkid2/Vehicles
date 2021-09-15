@@ -1,0 +1,9 @@
+name: ${name}
+version: ${version}
+main: ${groupId}.${artifactId}.${name}Plugin
+description: ${description}
+api-version: 1.17
+author: ${author}
+
+commands:
+permissions:
