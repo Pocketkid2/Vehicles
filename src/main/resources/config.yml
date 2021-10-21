@@ -1,0 +1,5 @@
+# Barebones config for tests
+block-list:
+  - WHITE_WOOL
+  - GLASS
+  - IRON
