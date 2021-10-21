@@ -6,4 +6,8 @@ api-version: 1.17
 author: ${author}
 
 commands:
+    vehicle:
+        description: Main plugin command
+        usage: /<command> [args]
+        aliases: [craft]
 permissions:
