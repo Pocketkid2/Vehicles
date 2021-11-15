@@ -7,7 +7,15 @@ author: ${author}
 
 commands:
     vehicle:
-        description: Main plugin command
+        description: Contains administrative-type commands that involve the plugin operation as a whole
         usage: /<command> [args]
         aliases: [craft]
+    craft:
+        description: Contains user-type commands that involve a specific craft that the player is attached to 
 permissions:
+    vehicles.admin:
+        description: Base admin command, allows access to /vehicle
+        default: op
+    vehicles.user:
+        description: Base user command, allows access to /craft
+        default: true
