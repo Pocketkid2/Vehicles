@@ -7,6 +7,8 @@ import org.bukkit.entity.Player;
 
 public class Vehicle {
 
+	private double density;
+
 	private List<Block> blocks;
 
 	private Player pilot;

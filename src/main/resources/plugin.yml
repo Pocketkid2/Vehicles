@@ -4,14 +4,13 @@ main: ${groupId}.${artifactId}.${name}Plugin
 description: ${description}
 api-version: 1.17
 author: ${author}
-
 commands:
     vehicle:
         description: Contains administrative-type commands that involve the plugin operation as a whole
         usage: /<command> [args]
-        aliases: [craft]
     craft:
-        description: Contains user-type commands that involve a specific craft that the player is attached to 
+        description: Contains user-type commands that involve a specific craft that the player is attached to
+        usage: /<command> [args]
 permissions:
     vehicles.admin:
         description: Base admin command, allows access to /vehicle

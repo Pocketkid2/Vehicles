@@ -6,6 +6,9 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.github.pocketkid2.vehicles.commands.CraftBaseCommand;
+import com.github.pocketkid2.vehicles.commands.VehicleBaseCommand;
+
 public class VehiclesPlugin extends JavaPlugin {
 
 	// Density config fields
@@ -20,6 +23,10 @@ public class VehiclesPlugin extends JavaPlugin {
 
 		// Create densities.yml if it doesn't exist, and load it
 		createDensitiesConfig();
+
+		// Register command executors
+		getCommand("vehicle").setExecutor(new VehicleBaseCommand(this));
+		getCommand("craft").setExecutor(new CraftBaseCommand(this));
 
 		// Tell the console we've finished enabling the plugin
 		getLogger().info("Enabled!");
