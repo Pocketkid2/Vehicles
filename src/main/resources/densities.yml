@@ -1,3 +1,9 @@
 #
 # These are all the blocks, and the values are going to fluctuate as testing continues
 #
+
+# For testing purposes, this is just a list of blocks that can be turned into a ship
+blocks:
+  - WOOL
+  - IRON_BLOCK
+  - GLASS
