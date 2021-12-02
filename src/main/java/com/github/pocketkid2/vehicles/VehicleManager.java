@@ -1,9 +1,7 @@
 package com.github.pocketkid2.vehicles;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.bukkit.Material;
 
@@ -17,14 +15,27 @@ public class VehicleManager {
 
 	public VehicleManager(VehiclesPlugin vp) {
 		plugin = vp;
+
+		// Create a new array and populate it with materials from the config file.
+		// We will only allow exact names that match the Spigot API enum.
 		allowedBlocks = new ArrayList<Material>();
 		for (String id : vp.getDensitiesConfig().getStringList("blocks")) {
-			// plugin.getLogger().info("Reading config value: " + id);
-			allowedBlocks.addAll(Arrays.stream(Material.values()).filter(s -> s.toString().contains(id)).collect(Collectors.toList()));
+			plugin.debug("Reading config value: " + id);
+			Material mat = Material.matchMaterial(id);
+			if (mat != null) {
+				if (mat.isBlock()) {
+					allowedBlocks.add(mat);
+					plugin.debug("Loaded material " + mat.toString());
+				} else {
+					plugin.warn("Material " + mat.toString() + " is not a block type!");
+				}
+
+			} else {
+				plugin.warn("Couldn't load material " + id);
+			}
+
 		}
-		// allowedBlocks =
-		// vp.getDensitiesConfig().getStringList("blocks").stream().map(Material.values).collect(Collectors.toList());
-		plugin.getLogger().info("Vehicle manager loaded " + allowedBlocks.size() + " allowed block types");
+		plugin.log("Vehicle manager loaded " + allowedBlocks.size() + " allowed block types");
 	}
 
 }

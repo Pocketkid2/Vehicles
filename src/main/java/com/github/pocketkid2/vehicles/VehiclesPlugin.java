@@ -39,17 +39,30 @@ public class VehiclesPlugin extends JavaPlugin {
 		vm = new VehicleManager(this);
 
 		// Tell the console we've finished enabling the plugin
-		getLogger().info("Enabled!");
+		log("Enabled!");
 	}
 
 	@Override
 	public void onDisable() {
-		getLogger().info("Disabled!");
+		log("Disabled!");
 	}
 
-	// Returns true if the console debug messages flag in the config is set to true
-	public boolean debug() {
-		return debug;
+	// Send a debug message to the console, if debug messages are enabled in the
+	// config
+	public void debug(String message) {
+		if (debug) {
+			getLogger().info("[Debug] " + message);
+		}
+	}
+
+	// Log an informational message to the console
+	public void log(String message) {
+		getLogger().info(message);
+	}
+
+	// Log a warning message to the console
+	public void warn(String message) {
+		getLogger().warning(message);
 	}
 
 	//

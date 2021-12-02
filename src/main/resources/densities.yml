@@ -3,7 +3,9 @@
 #
 
 # For testing purposes, this is just a list of blocks that can be turned into a ship
+# Using the * character will allow it to act as a wildcard, meaning all id names that match the pattern wil be included.
+# For example, '*wool' will match all colors of wool, and '*glass*' will match all types and colors of glass, including panes
 blocks:
-  - WOOL
-  - IRON_BLOCK
-  - GLASS
+ - WHITE_WOOL
+ - IRON_BLOCK
+ - GLASS
