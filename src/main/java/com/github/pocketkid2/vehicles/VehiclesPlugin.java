@@ -11,15 +11,22 @@ import com.github.pocketkid2.vehicles.commands.VehicleBaseCommand;
 
 public class VehiclesPlugin extends JavaPlugin {
 
+	private boolean debug;
+
 	// Density config fields
 	private File densitiesFile;
 	private FileConfiguration densitiesConfig;
+
+	// Managers
+	private VehicleManager vm;
 
 	@Override
 	public void onEnable() {
 
 		// Create config.yml if it doesn't exist, and load it
 		saveDefaultConfig();
+
+		debug = getConfig().getBoolean("debug", false);
 
 		// Create densities.yml if it doesn't exist, and load it
 		createDensitiesConfig();
@@ -28,6 +35,9 @@ public class VehiclesPlugin extends JavaPlugin {
 		getCommand("vehicle").setExecutor(new VehicleBaseCommand(this));
 		getCommand("craft").setExecutor(new CraftBaseCommand(this));
 
+		// Set up the manager
+		vm = new VehicleManager(this);
+
 		// Tell the console we've finished enabling the plugin
 		getLogger().info("Enabled!");
 	}
@@ -35,6 +45,11 @@ public class VehiclesPlugin extends JavaPlugin {
 	@Override
 	public void onDisable() {
 		getLogger().info("Disabled!");
+	}
+
+	// Returns true if the console debug messages flag in the config is set to true
+	public boolean debug() {
+		return debug;
 	}
 
 	//

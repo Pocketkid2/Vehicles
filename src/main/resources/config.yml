@@ -1,5 +1,6 @@
-# Barebones config for tests
-block-list:
-  - WHITE_WOOL
-  - GLASS
-  - IRON
+#
+#   Config file 
+#
+
+# Turns on/off console debug messages
+debug: true
