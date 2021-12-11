@@ -7,7 +7,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.github.pocketkid2.vehicles.commands.CraftBaseCommand;
-import com.github.pocketkid2.vehicles.commands.VehicleBaseCommand;
+import com.github.pocketkid2.vehicles.commands.VehiclesBaseCommand;
 
 public class VehiclesPlugin extends JavaPlugin {
 
@@ -32,7 +32,7 @@ public class VehiclesPlugin extends JavaPlugin {
 		createDensitiesConfig();
 
 		// Register command executors
-		getCommand("vehicle").setExecutor(new VehicleBaseCommand(this));
+		getCommand("vehicle").setExecutor(new VehiclesBaseCommand(this));
 		getCommand("craft").setExecutor(new CraftBaseCommand(this));
 
 		// Set up the manager

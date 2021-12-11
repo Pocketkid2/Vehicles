@@ -10,13 +10,13 @@ import org.bukkit.command.CommandSender;
 import com.github.pocketkid2.vehicles.VehiclesPlugin;
 import com.github.pocketkid2.vehicles.utils.Messages;
 
-public class VehicleBaseCommand implements CommandExecutor {
+public class VehiclesBaseCommand implements CommandExecutor {
 
 	private VehiclesPlugin plugin;
 
 	private List<SubCommand> subCommands;
 
-	public VehicleBaseCommand(VehiclesPlugin p) {
+	public VehiclesBaseCommand(VehiclesPlugin p) {
 		plugin = p;
 		subCommands = new ArrayList<SubCommand>();
 	}
